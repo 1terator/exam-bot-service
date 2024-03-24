@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  tehmet:
+    build: .
+    networks:
+      - proxy
+    env_file:
+      - .env
+    command: sh start.sh
+    volumes:
+      - .:/app
+      - ./media:/media
+
+networks:
+  proxy:
+    driver: bridge
